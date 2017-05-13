@@ -1,0 +1,7 @@
+<h1><%= @list.id %>のタスク詳細ページ</h1>
+
+<p><%= @list.content %></p>
+
+<%= link_to '一覧に戻る', lists_path%>
+<%= link_to 'このタスクを編集する', edit_list_path(@list) %>
+<%= lint_to 'このタスクを削除する', @list, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
