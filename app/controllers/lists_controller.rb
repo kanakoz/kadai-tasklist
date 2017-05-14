@@ -30,7 +30,7 @@ class ListsController < ApplicationController
   end
   
   def update
-    @list = List.gind(params[:id])
+    @list = List.find(params[:id])
     
     if @list.update(list_params)
       flash[:succes] = 'タスクが正常に更新されました'
