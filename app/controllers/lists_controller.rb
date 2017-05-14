@@ -21,6 +21,8 @@ class ListsController < ApplicationController
     else 
       flash[:danger] = 'タスクが作成できませんでした'
       render :new
+    end
+      
   end
   
   def edit
@@ -53,7 +55,7 @@ class ListsController < ApplicationController
   
   #Strong parameter
   def list_params
-    params.reqire(:list).permit(:content)
+    params.require(:list).permit(:content)
   end
   
   
