@@ -1,10 +1,12 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  
+  
   def index
     @lists = List.all
   end
   
   def show
-    @list = List.find(params[:id])
   end
   
   def new
@@ -26,11 +28,9 @@ class ListsController < ApplicationController
   end
   
   def edit
-    @list = List.find(params[:id])
   end
   
   def update
-    @list = List.find(params[:id])
     
     if @list.update(list_params)
       flash[:succes] = 'タスクが正常に更新されました'
@@ -44,7 +44,6 @@ class ListsController < ApplicationController
   end
   
   def destroy
-    @list = List.find(params[:id])
     @list.destroy
     
     flash[:succes] = 'タスクは正常に削除されました'
@@ -52,6 +51,10 @@ class ListsController < ApplicationController
   end
   
   private
+  
+  def set_list
+    @list = List.find(params[:id])
+  end
   
   #Strong parameter
   def list_params

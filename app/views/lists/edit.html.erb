@@ -1,10 +1,5 @@
 <h1>id: <%= @list.id %>のタスクの編集</h1>
 
-<%= form_for(@list) do |f| %>
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
-  
-  <%= f.submit '投稿' %>
-<% end %>
+<%= render 'form', list: @list %>
 
 <%= link_to '一覧に戻る', lists_path %>
