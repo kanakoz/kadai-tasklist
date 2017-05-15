@@ -58,7 +58,7 @@ class ListsController < ApplicationController
   
   #Strong parameter
   def list_params
-    params.require(:list).permit(:content)
+    params.require(:list).permit(:content, :title)
   end
   
   
